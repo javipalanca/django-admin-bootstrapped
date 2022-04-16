@@ -22,6 +22,8 @@ class BootstrapFieldRenderer(renderers.FieldRenderer):
             return text_value(self.field)
         # Render the widget
         self.add_widget_attrs()
+        if 'renderer' in self.widget.attrs.keys():
+            del self.widget.attrs['renderer']
         html = self.field.as_widget(attrs=self.widget.attrs)
         return html
 
