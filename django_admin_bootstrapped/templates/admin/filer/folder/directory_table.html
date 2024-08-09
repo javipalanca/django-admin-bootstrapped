@@ -68,7 +68,7 @@
                     {% endif %}
                     
                     <div>
-                        <b>{% if item_perms.change %}<a href="{{ file.get_admin_url_path }}{% if is_popup %}?_popup=1{% if select_folder %}&select_folder=1{% endif %}{% endif %}" title="{% blocktrans with file.label as item_label %}Change '{{ item_label }}' details{% endblocktrans %}">{{ file.label }}</a>{% else %}{{ file.label }}{% endif %}</b><span class="tiny"> ({{ file.size|filesize:"auto1000long" }}{% if file.file_type=="Image" %}, {{ file.width }}x{{ file.height }} px{% endif %})</span>
+                        <b>{% if item_perms.change %}<a href="{{ file.get_admin_url_path }}{% if is_popup %}?_popup=1{% if select_folder %}&select_folder=1{% endif %}{% endif %}" title="{% blocktrans with file.label as item_label %}Change '{{ item_label }}' details{% endblocktrans %}">{{ file.label }}</a>{% else %}{{ file.label }}{% endif %}</b><span class="tiny"> ({{ file.size|filesize:"auto1000long" }}{% if file.file_type == "Image" %}, {{ file.width }}x{{ file.height }} px{% endif %})</span>
                     </div>
                     
                     <div>
@@ -85,7 +85,7 @@
             </tr>
             {% endwith %}{% endif %}
         {% endfor %}
-        {% if not folder.is_root %}{% if folder.item_count==0 %}
+        {% if not folder.is_root %}{% if folder.item_count == 0 %}
         <tr class="{% cycle rowcolors %}">
                 <!-- FileIcon -->
                 <td colspan="5" class="row1">{% trans "there are no files or subfolders" %}</td>
